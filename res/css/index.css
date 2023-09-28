@@ -1,0 +1,4 @@
+body{
+    background-image: radial-gradient(ellipse farthest-corner at top, #D9FEF2, #A2BCB3);
+    min-height: 100vh;
+}
