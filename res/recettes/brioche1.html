@@ -50,7 +50,7 @@
 
       <!--Liste des ingrédients-->
       <div class="container-fluid">
-        <h4>Liste des ingrédients pour <span id="nombre_total" type="number">2</span> brioches</h4>
+        <h4>Liste des ingrédients pour <span id="nombre_total" type="number">2</span> <span id="grossebrioche">grosses brioches</span></h4>
         
         <div class="form-floating mt-3 mb-3 col-3">
             <input type="number" class="form-control" id="floatingInput" step="0.5" value="1" onchange="dosage();">
@@ -81,6 +81,8 @@
         </ul>
       </div>
       <!---->
+
+
     </body>
   </html>
 
@@ -89,7 +91,11 @@
     function dosage(){
         var valeur = document.querySelector("input").value;
         var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12;
-        
+        if( valeur == 0.5){
+            document.getElementById("grossebrioche").innerHTML = "grosse brioche";
+        } else {
+            document.getElementById("grossebrioche").innerHTML = "grosses brioches";
+        }
         document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
         document.getElementById("beurre").innerHTML = baseBEURRE * valeur;
         document.getElementById("lait").innerHTML = baseLAIT * valeur;
