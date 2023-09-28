@@ -43,39 +43,44 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../recettes.html">Recettes</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Pâte à pizza</li>
+          <li class="breadcrumb-item active" aria-current="page">Brownie au chocolat</li>
         </ol>
       </nav>
       <!--Fin fil d'ariane-->
 
       <!--Liste des ingrédients-->
       <div class="container-fluid">
-        <h4>Liste des ingrédients pour <span id="nombre_total" type="number">2</span> <span id="paton">pâtons</span> de ~280g</h4>
+        <h4>Liste des ingrédients pour <span id="nombre_total" type="number">1</span> <span id="brownie">brownie</span></h4>
         
         <div class="form-floating mt-3 mb-3 col-3">
-            <input type="number" class="form-control" id="floatingInput" step="0.5" value="1" onchange="dosage();" min="0.5">
-            <label for="floatingInput">Multiplier le dosage</label>
+            <input type="number" class="form-control" id="floatingInput" step="1" value="6" onchange="dosage();" min="1">
+            <label for="floatingInput">Nombre de <span id="personne">personnes</span></label>
         </div>
         <ul>
             <li>
-                Farine de gruau T45 - <span id="farine">345</span>g
+                Beurre - <span id="beurre">150</span>g
             </li>
             <li>
-                Eau - <span id="eau">200</span>g
+                Farine T45 - <span id="farine">60</span>g
             </li>
             <li>
-                Huile d'olive - <span id="huile">7</span>g
+                chocolat pâtissier - <span id="chocolat">250</span>g
             </li>
             <li>
-                Levure fraîche - <span id="levure">1.25</span>g
+                sucre - <span id="sucre">150</span>g
             </li>
             <li>
-                sel - <span id="sel">8.5</span>g
+                <span id="plurieloeuf">oeuf</span> - <span id="oeuf">3</span>
+            </li>
+            <li>
+                sel - <span>PM</span>
+            </li>
+            <li>
+                <i><b>optionnel</b></i> sucre vanillé - <span id="sucrevanille">1</span> <span id="sachet">sachet</span>
             </li>
         </ul>
       </div>
       <!---->
-
 
     </body>
   </html>
@@ -84,18 +89,19 @@
 
     function dosage(){
         var valeur = document.querySelector("input").value;
-        var baseNOMBRE = 2,baseEAU = 200, baseHUILE = 7, baseFARINE = 345, baseLEVURE = 1.25, baseSEL = 8.5;
-        if( valeur == 0.5){
-            document.getElementById("paton").innerHTML = "pâton";
+        var baseNOMBRE = 6,baseBEURRE = 150, baseCHOCOLAT = 250, baseFARINE = 60, basesucrevanille = 1, baseSUCRE = 150, baseOEUF = 3;
+       /* if( valeur <= 2){
+            document.getElementById("brownie").innerHTML = "brownie";
         } else {
-            document.getElementById("paton").innerHTML = "pâtons";
-        }
-        document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
-        document.getElementById("eau").innerHTML = baseEAU * valeur;
-        document.getElementById("huile").innerHTML = baseHUILE * valeur;
-        document.getElementById("sel").innerHTML = baseSEL * valeur;
-        document.getElementById("levure").innerHTML = baseLEVURE * valeur;
-        document.getElementById("farine").innerHTML = baseFARINE * valeur;
+            document.getElementById("brownie").innerHTML = "brownies";
+        }*/
+        //document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
+        document.getElementById("beurre").innerHTML = baseBEURRE * (valeur/baseNOMBRE);
+        document.getElementById("chocolat").innerHTML = Math.round(baseCHOCOLAT * (valeur/baseNOMBRE));
+        document.getElementById("sucrevanille").innerHTML = Math.round(basesucrevanille * (valeur/baseNOMBRE));
+        document.getElementById("farine").innerHTML = baseFARINE * (valeur/baseNOMBRE);
+        document.getElementById("sucre").innerHTML = baseSUCRE * (valeur/baseNOMBRE);
+        document.getElementById("oeuf").innerHTML = baseOEUF * (valeur/baseNOMBRE);
         
     }
   </script>

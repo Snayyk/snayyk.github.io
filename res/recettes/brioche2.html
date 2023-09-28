@@ -54,7 +54,7 @@
             
             <div class="form-floating mt-3 mb-3 col-3">
                 <input type="number" class="form-control" id="floatingInput" step="0.5" value="1" onchange="dosage();" min="0.5">
-                <label for="floatingInput">Modifier le dosage</label>
+                <label for="floatingInput">Multiplier le dosage</label>
             </div>
             <ul>
                 <li>
@@ -67,7 +67,7 @@
                     lait - <span id="lait">20</span>cl
                 </li>
                 <li>
-                    levure fraiche - <span id="levure">25</span>g
+                    levure fraîche - <span id="levure">25</span>g
                 </li>
                 <li>
                     sucre - <span id="sucre">80</span>g
@@ -81,13 +81,95 @@
             </ul>
           </div>
           <!---->
-    
+          
+          <div class="container-fluid text-center"> 
+            <h4>Version <span id="express">express</span> et économique</h4></div>
+          <div class="row " id="version1"> 
+            <div class="col-1 "></div>
+            <div class="col-10">
+                <ol>
+                    <li class="pt-3">
+                        <h5>Pétrissage</h5>
+                        Rajouter tous les ingrédients sauf le beurre.<br>Pétrir au robot (avec crochet) à vitesse  1 pendant 5 minutes, puis à vitesse 2 pendant 5 autres minutes.
+                        <br>Icorporer le beurre mou petit à petit. Pétrir 10 à 15 minutes toujours à vitesse 2. La pâte doit se décoller des bords, être souple, élastique et ne pas coller aux mains !
+                    </li>
+                    <li class="pt-3">
+                        <h5>Première levée</h5>
+                        Recouvrir la pâte d'un torchon éventuellement humide et laisser lever pendant 1h30 à 2h à température ambiante.
+                    </li>
+                    <li class="pt-3">
+                        <h5>Mise en forme et deuxième levée</h5>
+                        Fleurer le plan de travail.<br>
+                        Récupérer la pâte, la détailler en fonction du nombre de brioche total voulu.
+                        <br>Former la brioche comme on l'entend, dans un moule. Laisser lever pendant 45min à 1h en fonction de la température. La brioche doit arriver à hauteur du moule, ou doubler de volume...
+                    </li>
+                    <li class="pt-3">
+                        <h5>Dorure et cuisson</h5>
+                        On dore le dessus de la brioche avec un oeuf ou tout autre dorure.
+                        Cuisson au four à 180 C° pendant 20 à 40 minutes (moins si vous faîtes des briochettes).
+                    </li>
+                </ol>
+            </div>
+            <div class="col-1 "></div>
+        </div>
+        <div class="row " id="version2"> 
+            <div class="col-1 "></div>
+            <div class="col-10">
+                <ol>
+                    <li class="pt-3">
+                        <h5>Réaliser un pré-ferment</h5>
+                        Verser le lait tiède, la levure et <span id="preferment">100</span>g de farine dans la cuve.<br>Mélanger au doigt ou avec le manche d'une cuillère à bois.
+                        <br>Verser le reste de la farine sur le dessus sans mélanger. Laisser lever à température ambiante jusqu'à ce que le pré-ferment perce le dessus de la farine (15 à 30min).
+                    </li>
+                    <li class="pt-3">
+                        <h5>Pétrissage</h5>
+                        Rajouter les oeufs, le sucre et le sel.<br>Pétrir au robot (avec crochet) à vitesse  1 pendant 5 minutes, puis à vitesse 2 pendant 5 minutes.
+                        <br>Icorporer le beurre mou petit à petit. Pétrir 10 à 15 minutes toujours à vitesse 2. La pâte doit se décoller des bords, être souple, élastique et ne pas coller aux mains !
+                    </li>
+                    <li class="pt-3">
+                        <h5>Première levée</h5>
+                        Recouvrir la pâte d'un torchon éventuellement humide et laisser lever pendant ~1h30 à température ambiante.
+                    </li>
+                    <li class="pt-3">
+                        <h5>Deuxième levée</h5>
+                        Fleurer le plan de travail. Récupérer la pâte, l'abaisser grossièrement à la main et donner 2x2 rabats en changeant de sens (en portefeuille).
+                        <br>Placer la pâte dans un récipient avec suffisamment de hauteur pour que la pâte double de volume. Filmer et mettre au frigo pendant 8 à 16h.
+                    </li>
+                    <li class="pt-3">
+                        <h5>Mise en forme et troisième levée</h5>
+                        Fleurer le plan de travail.<br>
+                        Récupérer la pâte, la détailler en fonction du nombre de brioche total voulu.
+                        <br>Abaisser la pâte au rouleau, en forme de rectangle (comme une pâte feuilletée) et donner deux à trois tours simples. 
+                        On doit obtenir une pâte forte, si elle est forte au deuxième tour, on s'arrête là.
+                        <br>Former la brioche comme on l'entend, dans un moule. Laisser lever pendant 45min à 4h en fonction de la température. La brioche doit arriver à hauteur du moule, ou doubler de volume...
+                    </li>
+                    <li class="pt-3">
+                        <h5>Dorure et cuisson</h5>
+                        On dore le dessus de la brioche avec un oeuf ou tout autre dorure.
+                        Cuisson au four à 180 C° pendant 20 à 40 minutes (moins si vous faîtes des briochettes).
+                    </li>
+                </ol>
+            </div>
+            <div class="col-1 "></div>
+        </div>
+        
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    Il est possible de réaliser cette recette de la même manière que la brioche pur beurre, c'est à dire avec poussée lente au frigo. 
+                    <br>Il s'agit donc d'une brioche économique et non express ! <button id="bouton" class="btn btn-primary round" onclick="version();">Cliquer ici pour la version lente</button>
+                </div>
+            </div>
+        </div>
     
         </body>
       </html>
     
       <script>
-    
+        var bool = true;
+        document.getElementById("version2").hidden = true;
+
         function dosage(){
             var valeur = document.querySelector("input").value;
             var baseNOMBRE = 2,baseBEURRE = 80, baseLAIT = 20, baseFARINE = 500, baseLEVURE = 25, baseSUCRE = 80, baseOEUF = 2, baseSEL = 10;
@@ -96,6 +178,7 @@
             } else {
                 document.getElementById("grossebrioche").innerHTML = "grosses brioches";
             }
+
             document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
             document.getElementById("beurre").innerHTML = baseBEURRE * valeur;
             document.getElementById("lait").innerHTML = baseLAIT * valeur;
@@ -104,6 +187,23 @@
             document.getElementById("farine").innerHTML = baseFARINE * valeur;
             document.getElementById("sucre").innerHTML = baseSUCRE * valeur;
             document.getElementById("oeuf").innerHTML = baseOEUF * valeur;
-            
+
+            document.getElementById("preferment").innerHTML = (baseFARINE * valeur) / 5;            
         }
+        function version(){
+            bool = !bool;
+
+            if(bool=== false){
+                document.getElementById("version1").hidden = true;
+                document.getElementById("version2").hidden = false;
+                document.getElementById("bouton").innerHTML = "Cliquer ici pour la version express";
+                document.getElementById("express").innerHTML = "lente";
+            } else {
+                document.getElementById("version1").hidden = false;
+                document.getElementById("version2").hidden = true;
+                document.getElementById("bouton").innerHTML = "Cliquer ici pour la version lente";
+                document.getElementById("express").innerHTML = "express";
+            }
+        }
+
       </script>
