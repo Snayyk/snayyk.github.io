@@ -48,5 +48,56 @@
       </nav>
       <!--Fin fil d'ariane-->
 
+      <!--Liste des ingrédients-->
+      <div class="container-fluid">
+        <h4>Liste des ingrédients pour <span id="nombre_total" type="number">2</span> brioches</h4>
+        
+        <div class="form-floating mt-3 mb-3 col-3">
+            <input type="number" class="form-control" id="floatingInput" step="0.5" value="1" onchange="dosage();">
+            <label for="floatingInput">Modifier le dosage</label>
+        </div>
+        <ul>
+            <li>
+                Beurre - <span id="beurre">250</span>g
+            </li>
+            <li>
+                Farine de gruau - <span id="farine">500</span>g
+            </li>
+            <li>
+                lait - <span id="lait">10</span>cl
+            </li>
+            <li>
+                levure fraiche - <span id="levure">18</span>g
+            </li>
+            <li>
+                sucre - <span id="sucre">100</span>g
+            </li>
+            <li>
+                oeufs - <span id="oeuf">4</span> (+1 pour la dorure)
+            </li>
+            <li>
+                sel - <span id="sel">12</span>g
+            </li>
+        </ul>
+      </div>
+      <!---->
     </body>
   </html>
+
+  <script>
+
+    function dosage(){
+        var valeur = document.querySelector("input").value;
+        var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12;
+        
+        document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
+        document.getElementById("beurre").innerHTML = baseBEURRE * valeur;
+        document.getElementById("lait").innerHTML = baseLAIT * valeur;
+        document.getElementById("sel").innerHTML = baseSEL * valeur;
+        document.getElementById("levure").innerHTML = baseLEVURE * valeur;
+        document.getElementById("farine").innerHTML = baseFARINE * valeur;
+        document.getElementById("sucre").innerHTML = baseSUCRE * valeur;
+        document.getElementById("oeuf").innerHTML = baseOEUF * valeur;
+        
+    }
+  </script>
