@@ -1,0 +1,16 @@
+
+{
+    "ingredients": [
+        {
+            "name": "beurre",
+            "id": 1,
+            "quantite": 100,
+            "proteine": 0,
+            "lipide": 82,
+            "glucide": 0
+        },
+        {
+            
+        }
+    ]
+}

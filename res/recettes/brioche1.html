@@ -121,11 +121,24 @@
         </div>
         <div class="col-1 "></div>
     </div> 
-
+    <div class="container-fluid">
+      <h1>lipides:<span id="lipide">1</span></h1>
+    </div>
     </body>
   </html>
 
   <script>
+    var url = "../js/ingredients.json";
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.responseType = "json";
+    request.send();
+
+    request.onload = function () {
+
+      var ingredients = request.response;
+      calories(ingredients);
+    }
 
     function dosage(){
         var valeur = document.querySelector("input").value;
@@ -146,4 +159,9 @@
         
         document.getElementById("preferment").innerHTML = (baseFARINE * valeur) / 5;
     }
+
+    function calories(obj){
+      document.getElementById("lipide").innerHTML = obj["ingredients"][0];
+    }
+
   </script>
