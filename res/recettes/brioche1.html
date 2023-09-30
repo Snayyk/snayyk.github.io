@@ -56,6 +56,7 @@
             <input type="number" class="form-control" id="floatingInput" step="0.5" value="1" onchange="dosage();" min="0.5">
             <label for="floatingInput">Multiplier le dosage</label>
         </div>
+        
         <ul>
             <li>
                 Beurre - <span id="beurre">250</span>g
@@ -81,6 +82,13 @@
         </ul>
       </div>
       <!---->
+      <!--Calories-->
+      <div class="container-fluid text-center">
+        <h5>Total calorique: <span id="calorie"></span>cal | protéines: <span id="proteine"></span>g | lipides: <span id="lipide"></span>g | glucides: <span id="glucide"></span>g</h5>
+      </div>
+
+      <!---->
+
     <div class="row "> 
         <div class="col-1 "></div>
         <div class="col-10">
@@ -121,9 +129,7 @@
         </div>
         <div class="col-1 "></div>
     </div> 
-    <div class="container-fluid">
-      <h1>lipides:<span id="lipide">1</span></h1>
-    </div>
+    
     </body>
   </html>
 
@@ -185,21 +191,30 @@
     function calories(){
       //coef = valeurACT/valeurREF
       lipide = 0, proteine = 0, glucide = 0;
-      for(var i = 0; i < ingredients.length ; i++){
-        var coef = 0, indice = 0;
-        for(y = 0; tableau[y][0] != ingredients["ingredients"][i]["id"]; y++){
-          indice = y;
-        } 
-        coef = tableau[indice][1] / ingredients["ingredients"][i]["quantite"];
-        proteine += ingredients["ingredients"][i]["proteine"]*coef;
-        lipide += ingredients["ingredients"][i]["lipide"]*coef;
-        glucide += ingredients["ingredients"][i]["glucide"]*coef;
-        console.log(lipide,proteine,glucide);
-        // ESSAIE DE FAIRE UN TABLEAU DE BASE ET ACTUELLE POUR LES INGREDIENTS AVEC LEUR VALEUR ETC COMME DANS LE JSON POUR LIER LES DONNEES
-        // BOUCLE DANS UNE BOUCLE
+      for(var i = 0; i < ingredients["ingredients"].length ; i++){
+        var coef = 0, indice = 0, flag = 0;
+        for(y = 0; tableau[y][0] != ingredients["ingredients"][i]["id"]; y++, indice++){
+          //indice = y;
+          if(y == tableau.length-1){
+            flag = 1;
+            break;
+          }
+          
+        }
+        if(flag == 0){
+          coef = tableau[indice][1] / ingredients["ingredients"][i]["quantite"];
+          proteine += ingredients["ingredients"][i]["proteine"]*coef;
+          lipide += ingredients["ingredients"][i]["lipide"]*coef;
+          glucide += ingredients["ingredients"][i]["glucide"]*coef;        
+          //console.log(lipide,proteine,glucide);
+        }
+        
       }
       
-      
+      document.getElementById("calorie").innerHTML = (proteine*4 + lipide*9 + glucide*4);
+      document.getElementById("proteine").innerHTML = proteine;
+      document.getElementById("lipide").innerHTML = lipide;
+      document.getElementById("glucide").innerHTML = glucide;
       }
 
 
