@@ -5,12 +5,73 @@
             "name": "beurre",
             "id": 1,
             "quantite": 100,
-            "proteine": 0,
+            "proteine": 0.7,
             "lipide": 82,
+            "glucide": 0.5
+        },
+        {
+            "name": "lait",
+            "id": 2,
+            "quantite": 1,
+            "proteine": 0.33,
+            "lipide": 0.16,
+            "glucide": 0.48
+        },
+        {
+            "name": "farine de  t45 gruau",
+            "id": 3,
+            "quantite": 100,
+            "proteine": 10.1,
+            "lipide": 1.1,
+            "glucide": 75.9
+        },
+        {
+            "name": "farine t45",
+            "id": 4,
+            "quantite": 100,
+            "proteine": 8.5,
+            "lipide": 1,
+            "glucide": 71
+        },
+        {
+            "name": "levure boulangere",
+            "id": 5,
+            "quantite": 100,
+            "proteine": 8,
+            "lipide": 1.9,
+            "glucide": 18
+        },
+        {
+            "name": "oeuf",
+            "id": 6,
+            "quantite": 1,
+            "proteine": 6,
+            "lipide": 5,
+            "glucide": 1
+        },
+        {
+            "name": "sucre",
+            "id": 7,
+            "quantite": 100,
+            "proteine": 0,
+            "lipide": 0,
+            "glucide": 100
+        },
+        {
+            "name": "sel",
+            "id": 8,
+            "quantite": 100,
+            "proteine": 0,
+            "lipide": 0,
             "glucide": 0
         },
         {
-            
+            "name": "huiled'olive",
+            "id": 9,
+            "quantite": 1,
+            "proteine": 0,
+            "lipide": 9.2,
+            "glucide": 0
         }
     ]
 }

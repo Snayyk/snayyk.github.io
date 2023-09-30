@@ -1,0 +1,13 @@
+Rappel unité de mesure: 
+solide -> g
+liquide -> cl
+Rappel du code des ingredients:
+beurre -> 1
+lait -> 2
+farine T45 de gruau -> 3
+farine T45 -> 4
+levure boulangère -> 5
+oeuf -> 6
+sucre -> 7
+sel -> 8
+huile -> 9

@@ -128,7 +128,13 @@
   </html>
 
   <script>
-    var url = "../js/ingredients.json";
+    var ingredients;
+    var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12; //variables de base
+    var nombre = 2, beurre = [1,250], lait = 10, farine = 500, levure = 18, sucre = 100, oeuf = 4, sel = 12; // variables actuelles
+    var tableau = [[1,250],[2,10],[3,500],[5,18],[7,100],[6,4],[8,12]];
+    var proteine = 0, lipide = 0, glucide = 0;
+
+    var url = "https://snayyk.github.io/res/js/ingredients.json";
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.responseType = "json";
@@ -136,32 +142,65 @@
 
     request.onload = function () {
 
-      var ingredients = request.response;
-      calories(ingredients);
-    }
+      ingredients = request.response;
+      //calories(ingredients);
+      calories();
+    };
+    
 
     function dosage(){
+        //Partie dosage
         var valeur = document.querySelector("input").value;
-        var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12;
+        //var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12; //variables de base
+        //var nombre = 0, beurre = 0, lait = 0, farine = 0, levure = 0, sucre = 0, oeuf = 0, sel = 0; // variables actuelles
         if( valeur == 0.5){
             document.getElementById("grossebrioche").innerHTML = "grosse brioche";
         } else {
             document.getElementById("grossebrioche").innerHTML = "grosses brioches";
         }
-        document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
-        document.getElementById("beurre").innerHTML = baseBEURRE * valeur;
-        document.getElementById("lait").innerHTML = baseLAIT * valeur;
-        document.getElementById("sel").innerHTML = baseSEL * valeur;
-        document.getElementById("levure").innerHTML = baseLEVURE * valeur;
-        document.getElementById("farine").innerHTML = baseFARINE * valeur;
-        document.getElementById("sucre").innerHTML = baseSUCRE * valeur;
-        document.getElementById("oeuf").innerHTML = baseOEUF * valeur;
+        nombre = baseNOMBRE * valeur;
+        tableau[0][1] = baseBEURRE * valeur;
+        tableau[1][1] = baseLAIT * valeur;
+        tableau[2][1] = baseFARINE * valeur;
+        tableau[6][1] = baseSEL * valeur;
+        tableau[3][1] = baseLEVURE * valeur;
+        tableau[4][1] = baseSUCRE * valeur;
+        tableau[5][1] = baseOEUF * valeur;
+        document.getElementById("nombre_total").innerHTML = nombre;
+        document.getElementById("beurre").innerHTML = tableau[0][1];
+        document.getElementById("lait").innerHTML = tableau[1][1];
+        document.getElementById("sel").innerHTML = tableau[6][1];
+        document.getElementById("levure").innerHTML = tableau[3][1];
+        document.getElementById("farine").innerHTML = tableau[2][1];
+        document.getElementById("sucre").innerHTML = tableau[4][1];
+        document.getElementById("oeuf").innerHTML = tableau[5][1];
         
         document.getElementById("preferment").innerHTML = (baseFARINE * valeur) / 5;
+        
+        //Partie calories
+        //document.getElementById("lipide").innerHTML = ingredients["ingredients"][0]["lipide"];
+        calories();
     }
 
-    function calories(obj){
-      document.getElementById("lipide").innerHTML = obj["ingredients"][0];
-    }
+    function calories(){
+      //coef = valeurACT/valeurREF
+      lipide = 0, proteine = 0, glucide = 0;
+      for(var i = 0; i < ingredients.length ; i++){
+        var coef = 0, indice = 0;
+        for(y = 0; tableau[y][0] != ingredients["ingredients"][i]["id"]; y++){
+          indice = y;
+        } 
+        coef = tableau[indice][1] / ingredients["ingredients"][i]["quantite"];
+        proteine += ingredients["ingredients"][i]["proteine"]*coef;
+        lipide += ingredients["ingredients"][i]["lipide"]*coef;
+        glucide += ingredients["ingredients"][i]["glucide"]*coef;
+        console.log(lipide,proteine,glucide);
+        // ESSAIE DE FAIRE UN TABLEAU DE BASE ET ACTUELLE POUR LES INGREDIENTS AVEC LEUR VALEUR ETC COMME DANS LE JSON POUR LIER LES DONNEES
+        // BOUCLE DANS UNE BOUCLE
+      }
+      
+      
+      }
+
 
   </script>
