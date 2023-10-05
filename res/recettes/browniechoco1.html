@@ -90,11 +90,13 @@
     function dosage(){
         var valeur = document.querySelector("input").value;
         var baseNOMBRE = 6,baseBEURRE = 150, baseCHOCOLAT = 250, baseFARINE = 60, basesucrevanille = 1, baseSUCRE = 150, baseOEUF = 3;
-       /* if( valeur <= 2){
-            document.getElementById("brownie").innerHTML = "brownie";
+        if( valeur < 2){
+            
+            document.getElementById("personne").innerHTML = "personne";
         } else {
-            document.getElementById("brownie").innerHTML = "brownies";
-        }*/
+            
+            document.getElementById("personne").innerHTML = "personnes";
+        }
         //document.getElementById("nombre_total").innerHTML = baseNOMBRE * valeur;
         document.getElementById("beurre").innerHTML = baseBEURRE * (valeur/baseNOMBRE);
         document.getElementById("chocolat").innerHTML = Math.round(baseCHOCOLAT * (valeur/baseNOMBRE));

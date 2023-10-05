@@ -11,3 +11,11 @@ oeuf -> 6
 sucre -> 7
 sel -> 8
 huile -> 9
+cacao non sucré -> 10
+chocolat(carrefour dessert) -> 11
+levure chimique -> 12
+crème liquide 30% -> 13
+crème liquide 15% -> 14
+crème liquide 12% -> 15
+sucre vanille -> 16
+feuille de gélatine -> 17

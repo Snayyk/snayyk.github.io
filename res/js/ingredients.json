@@ -66,11 +66,75 @@
             "glucide": 0
         },
         {
-            "name": "huiled'olive",
+            "name": "huile d'olive",
             "id": 9,
             "quantite": 1,
             "proteine": 0,
             "lipide": 9.2,
+            "glucide": 0
+        },
+        {
+            "name": "cacao en poudre",
+            "id": 10,
+            "quantite": 100,
+            "proteine": 20,
+            "lipide": 21,
+            "glucide": 11
+        },
+        {
+            "name": "chocolat en tablette",
+            "id": 11,
+            "quantite": 100,
+            "proteine": 7,
+            "lipide": 30,
+            "glucide": 51
+        },
+        {
+            "name": "levure chimique",
+            "id": 12,
+            "quantite": 100,
+            "proteine": 0,
+            "lipide": 0,
+            "glucide": 0
+        },
+        {
+            "name": "crème liquide 30%",
+            "id": 13,
+            "quantite": 1,
+            "proteine": 0.24,
+            "lipide": 3,
+            "glucide": 0.34
+        },
+        {
+            "name": "crème liquide 15%",
+            "id": 14,
+            "quantite": 1,
+            "proteine": 0.3,
+            "lipide": 1.5,
+            "glucide": 0.48
+        },
+        {
+            "name": "crème liquide 12%",
+            "id": 15,
+            "quantite": 1,
+            "proteine": 0.31,
+            "lipide": 1.2,
+            "glucide": 0.45
+        },
+        {
+            "name": "sucre vanille",
+            "id": 16,
+            "quantite": 1,
+            "proteine": 0.03,
+            "lipide": 0.03,
+            "glucide": 7.42
+        },
+        {
+            "name": "feuille de gélatine",
+            "id": 17,
+            "quantite": 1,
+            "proteine": 0,
+            "lipide": 0,
             "glucide": 0
         }
     ]

@@ -101,7 +101,7 @@
                 <li class="pt-3">
                     <h5>Pétrissage</h5>
                     Rajouter les oeufs, le sucre et le sel.<br>Pétrir au robot (avec crochet) à vitesse  1 pendant 5 minutes, puis à vitesse 2 pendant 10 minutes.
-                    <br>Icorporer le beurre mou petit à petit. Pétrir 15 à 20 minutes toujours à vitesse 2. La pâte doit se décoller des bords, être souple, élastique et ne pas coller aux mains !
+                    <br>Incorporer le beurre mou petit à petit. Pétrir 15 à 20 minutes toujours à vitesse 2. La pâte doit se décoller des bords, être souple, élastique et ne pas coller aux mains !
                 </li>
                 <li class="pt-3">
                     <h5>Première levée</h5>
@@ -135,9 +135,8 @@
 
   <script>
     var ingredients;
-    var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12; //variables de base
-    var nombre = 2, beurre = [1,250], lait = 10, farine = 500, levure = 18, sucre = 100, oeuf = 4, sel = 12; // variables actuelles
-    var tableau = [[1,250],[2,10],[3,500],[5,18],[7,100],[6,4],[8,12]];
+    var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12; //variables de base 
+    var tableau = [[1,250],[2,10],[3,500],[5,18],[7,100],[6,4],[8,12]];// variables actuelles
     var proteine = 0, lipide = 0, glucide = 0;
 
     var url = "https://snayyk.github.io/res/js/ingredients.json";
@@ -149,7 +148,6 @@
     request.onload = function () {
 
       ingredients = request.response;
-      //calories(ingredients);
       calories();
     };
     
@@ -157,8 +155,7 @@
     function dosage(){
         //Partie dosage
         var valeur = document.querySelector("input").value;
-        //var baseNOMBRE = 2,baseBEURRE = 250, baseLAIT = 10, baseFARINE = 500, baseLEVURE = 18, baseSUCRE = 100, baseOEUF = 4, baseSEL = 12; //variables de base
-        //var nombre = 0, beurre = 0, lait = 0, farine = 0, levure = 0, sucre = 0, oeuf = 0, sel = 0; // variables actuelles
+       
         if( valeur == 0.5){
             document.getElementById("grossebrioche").innerHTML = "grosse brioche";
         } else {
@@ -184,7 +181,6 @@
         document.getElementById("preferment").innerHTML = (baseFARINE * valeur) / 5;
         
         //Partie calories
-        //document.getElementById("lipide").innerHTML = ingredients["ingredients"][0]["lipide"];
         calories();
     }
 
@@ -194,7 +190,7 @@
       for(var i = 0; i < ingredients["ingredients"].length ; i++){
         var coef = 0, indice = 0, flag = 0;
         for(y = 0; tableau[y][0] != ingredients["ingredients"][i]["id"]; y++, indice++){
-          //indice = y;
+          
           if(y == tableau.length-1){
             flag = 1;
             break;
@@ -206,7 +202,7 @@
           proteine += ingredients["ingredients"][i]["proteine"]*coef;
           lipide += ingredients["ingredients"][i]["lipide"]*coef;
           glucide += ingredients["ingredients"][i]["glucide"]*coef;        
-          //console.log(lipide,proteine,glucide);
+          
         }
         
       }
