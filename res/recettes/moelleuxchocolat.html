@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Snayyk-hub | Recette de brioche pur beurre</title>
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/index.css">
+  </head>
+
+  <header>
+    <!-- Barre de navigation-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../../index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../recettes.html" style="color: red;">Recettes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Fin de la barre de navigation-->
+  </header>
+
+
+  <body class="pt-5 mt-5 mb-5 pb-5 container-fluid">
+
+
+
+      <!--Fil d'ariane-->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../recettes.html">Recettes</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Moelleux chocolat</li>
+        </ol>
+      </nav>
+      <!--Fin fil d'ariane-->
+
+      <!--Liste des ingrédients-->
+      <div class="container-fluid">
+        <h4>Liste des ingrédients </h4>
+        
+        <div class="form-floating mt-3 mb-3 col-md-3 col-sm-4">
+            <input type="number" class="form-control" id="floatingInput" step="1" value="12" onchange="dosage();" min="1">
+            <label for="floatingInput">Nombre de moelleux</label>
+        </div>
+        <ul>
+            <li>
+                Chocolat noir - <span id="chocolat">250</span>g
+            </li>
+            <li>
+                Beurre - <span id="beurre">150</span>g
+            </li>
+            <li>
+                Farine T45 - <span id="farine">50</span>g
+            </li>
+            
+            <li>
+                sucre - <span id="sucre">125</span>g
+            </li>
+            <li>
+                <span id="plurieloeuf">oeuf</span> - <span id="oeuf">5</span>
+            </li>
+            
+            <li>
+                sel - <span>PM</span>
+            </li>
+
+            
+            
+        </ul>
+      </div>
+      <!---->
+
+      <!--Calories-->
+      <div class="container-fluid text-center">
+        <h5>Total calorique: <span id="calorie"></span>cal | protéines: <span id="proteine"></span>g | lipides: <span id="lipide"></span>g | glucides: <span id="glucide"></span>g</h5>
+      </div>
+
+      <!---->
+
+    </body>
+  </html>
+
+  <script>
+    //Partie calories
+    var ingredients;
+    var baseNOMBRE = 12, baseCHOCOLAT = 250, baseBEURRE = 150, baseSUCRE = 125, baseOEUF = 5, baseFARINE = 50; //variables de base 
+    var tableau = [[11,250],[1,150],[7,125],[6,5],[4,50]];// variables actuelles
+    var proteine = 0, lipide = 0, glucide = 0;
+
+    var url = "https://snayyk.github.io/res/js/ingredients.json";
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.responseType = "json";
+    request.send();
+
+    request.onload = function () {
+
+      ingredients = request.response;
+      calories();
+    };
+    //
+
+    function dosage(){
+        var valeur = document.querySelector("input").value;
+        
+
+               
+        tableau[0][1] = baseCHOCOLAT * (valeur/baseNOMBRE);
+        tableau[1][1] = baseBEURRE * (valeur/baseNOMBRE);
+        tableau[2][1] = baseSUCRE * (valeur/baseNOMBRE);
+        tableau[3][1] = baseOEUF * (valeur/baseNOMBRE);
+        tableau[4][1] = baseFARINE * (valeur/baseNOMBRE);
+
+        document.getElementById("chocolat").innerHTML = Math.round(tableau[0][1]);
+        document.getElementById("beurre").innerHTML = Math.round(tableau[1][1]);
+        document.getElementById("sucre").innerHTML = Math.round(tableau[2][1]);
+        document.getElementById("oeuf").innerHTML = tableau[3][1];
+        document.getElementById("farine").innerHTML = Math.round(tableau[4][1]);
+        
+        calories();
+    }
+
+    function calories(){
+      //coef = valeurACT/valeurREF
+      lipide = 0, proteine = 0, glucide = 0;
+      for(var i = 0; i < ingredients["ingredients"].length ; i++){
+        var coef = 0, indice = 0, flag = 0;
+        for(y = 0; tableau[y][0] != ingredients["ingredients"][i]["id"]; y++, indice++){
+          
+          if(y == tableau.length-1){
+            flag = 1;
+            break;
+          }
+          
+        }
+        if(flag == 0){
+          coef = tableau[indice][1] / ingredients["ingredients"][i]["quantite"];
+          proteine += ingredients["ingredients"][i]["proteine"]*coef;
+          lipide += ingredients["ingredients"][i]["lipide"]*coef;
+          glucide += ingredients["ingredients"][i]["glucide"]*coef;        
+          
+        }
+        
+      }
+      
+      document.getElementById("calorie").innerHTML = (proteine*4 + lipide*9 + glucide*4);
+      document.getElementById("proteine").innerHTML = proteine;
+      document.getElementById("lipide").innerHTML = lipide;
+      document.getElementById("glucide").innerHTML = glucide;
+      }
+  </script>
