@@ -136,6 +136,54 @@
             "proteine": 0,
             "lipide": 0,
             "glucide": 0
+        },
+        {
+            "name": "eau",
+            "id": 18,
+            "quantite": 1,
+            "proteine": 0,
+            "lipide": 0,
+            "glucide": 0
+        },
+        {
+            "name": "jaune d'oeuf",
+            "id": 19,
+            "quantite": 1,
+            "proteine": 3,
+            "lipide": 5,
+            "glucide": 0
+        },
+        {
+            "name": "blanc d'oeuf",
+            "id": 20,
+            "quantite": 1,
+            "proteine": 3,
+            "lipide": 0,
+            "glucide": 0
+        },
+        {
+            "name": "maizena",
+            "id": 21,
+            "quantite": 100,
+            "proteine": 0.5,
+            "lipide": 0.5,
+            "glucide": 86
+        },
+        {
+            "name": "jus de citron",
+            "id": 22,
+            "quantite": 100,
+            "proteine": 0,
+            "lipide": 0,
+            "glucide": 0
+        },
+        {
+            "name": "citron",
+            "id": 23,
+            "quantite": 100,
+            "proteine": 0,
+            "lipide": 0,
+            "glucide": 0
         }
     ]
 }

@@ -19,3 +19,9 @@ crème liquide 15% -> 14
 crème liquide 12% -> 15
 sucre vanille -> 16
 feuille de gélatine -> 17
+eau -> 18
+jaune d'oeuf -> 19
+blanc d'oeuf -> 20
+maizena -> 21
+jus de citron -> 22
+citron -> 23

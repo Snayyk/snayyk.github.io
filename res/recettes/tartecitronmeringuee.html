@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Snayyk-hub | Recette de brioche pur beurre</title>
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/index.css">
+  </head>
+
+  <header>
+    <!-- Barre de navigation-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../../index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../recettes.html" style="color: red;">Recettes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Fin de la barre de navigation-->
+  </header>
+
+
+  <body class="pt-5 mt-5 mb-5 pb-5 container-fluid">
+
+
+
+      <!--Fil d'ariane-->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../recettes.html">Recettes</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Tarte citron meringuée</li>
+        </ol>
+      </nav>
+      <!--Fin fil d'ariane-->
+
+      <!--Liste des ingrédients-->
+      <div class="container-fluid">
+        <h4>Liste des ingrédients </h4>
+        
+        <div class="form-floating mt-3 mb-3 col-md-3 col-sm-4">
+            <input type="number" class="form-control" id="floatingInput" step="1" value="8" onchange="dosage();" min="1" disabled>
+            <label for="floatingInput">Nombre de personnes</label>
+        </div>
+        <ul>
+            <h5>Pâte sucrée :</h5>
+            <li>
+                eau - <span id="eau1">5</span>cl
+            </li>
+            <li>
+                Beurre - <span id="beurre1">125</span>g
+            </li>
+            <li>
+                Farine T45 - <span id="farine1">250</span>g
+            </li>
+            
+            <li>
+                sucre - <span id="sucre1">100</span>g
+            </li>
+            <li>
+                <span id="plurieloeuf">oeuf</span> - <span id="oeuf1">1</span> (jaune)
+            </li>
+            
+            <li>
+                sel - <span id="sel1">2</span>g
+            </li>
+            <h5>Appareil citron :</h5>
+            <li>
+                jus de citron - <span id="juscitron2">30</span>cl OU citrons - <span id="citron2">4</span>(gros)
+            </li>
+            
+            <li>
+                sucre - <span id="sucre2">200</span>g
+            </li>
+            <li>
+                <span id="plurieloeuf">oeuf</span> - <span id="oeuf2">3</span> (entiers)
+            </li>
+            <li>
+                oeuf - <span id="jaune2">3</span> (jaune)
+            </li>
+            <li>
+                maïzena - <span id="maizena2">25</span>g | alternative - farine (même quantité)
+            </li>
+            <li>
+                crème 30% - <span id="creme2">20</span>cl
+            </li>
+            <li>
+                Beurre - <span id="beurre2">100</span>g
+            </li>
+            <li>
+                eau - PM
+            </li>
+        
+            <h5>Meringue italienne :</h5>
+            <li>
+                oeuf - <span id="oeuf3">4</span> (blanc)
+            </li>
+            <li>
+                sucre - <span id="sucre3">250</span>g
+            </li>
+            <li>
+                eau - <span id="eau3">8</span>cl
+            </li>
+            <li>
+                sel - PM
+            </li>
+
+
+            
+            
+        </ul>
+      </div>
+      <!---->
+
+      <!--Calories-->
+      <div class="container-fluid text-center">
+        <h5>Total calorique: <span id="calorie"></span>cal | protéines: <span id="proteine"></span>g | lipides: <span id="lipide"></span>g | glucides: <span id="glucide"></span>g</h5>
+      </div>
+
+      <!---->
+
+    </body>
+  </html>
+
+  <script>
+    //Partie calories
+    var ingredients;
+    var baseNOMBRE1 = 1, baseEAU1 = 5, baseBEURRE1 = 125, baseSUCRE1 = 100, baseOEUF1 = 1, baseFARINE1 = 250, baseSEL1 = 2; //variables de base
+    var baseNOMBRE2 = 8, baseBEURRE2 = 100, baseSUCRE2 = 200, baseOEUF2 = 3,baseJAUNE2 = 3, baseMAIZENA2 = 25, baseCREME2 = 20, baseJUSCITRON2 = 30, baseCITRON2 = 4; //variables de base
+    var baseNOMBRE3 = 8, baseEAU3 = 8, baseSUCRE3 = 250, baseBLANC3 = 4; //variables de base 
+    var tableau1 = [[18,20],[1,125],[7,100],[19,1],[4,250],[8,2]];// variables actuelles
+    var tableau2 = [[1,100],[7,200],[6,3],[19,3],[21,25],[13,20],[22,30],[23,4]];// variables actuelles
+    var tableau3 = [[18,80],[7,250],[20,4]];// variables actuelles
+    var proteine = 0, lipide = 0, glucide = 0;
+
+    var url = "https://snayyk.github.io/res/js/ingredients.json";
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.responseType = "json";
+    request.send();
+
+    request.onload = function () {
+
+      ingredients = request.response;
+      calories();
+    };
+    //
+
+    function dosage(){
+        var valeur = document.querySelector("input").value;
+        
+
+               
+        tableau1[0][1] = baseEAU1 * (valeur/baseNOMBRE);
+        tableau1[1][1] = baseBEURRE1 * (valeur/baseNOMBRE);
+        tableau1[2][1] = baseSUCRE1 * (valeur/baseNOMBRE);
+        tableau1[3][1] = baseOEUF1 * (valeur/baseNOMBRE);
+        tableau1[4][1] = baseFARINE1 * (valeur/baseNOMBRE);
+        tableau1[5][1] = baseSEL1 * (valeur/baseNOMBRE);
+
+        tableau2[0][1] = baseBEURRE2 * (valeur/baseNOMBRE);
+        tableau2[1][1] = baseSUCRE2 * (valeur/baseNOMBRE);
+        tableau2[2][1] = baseOEUF2 * (valeur/baseNOMBRE);
+        tableau2[3][1] = baseJAUNE2 * (valeur/baseNOMBRE);
+        tableau2[4][1] = baseMAIZENA2 * (valeur/baseNOMBRE);
+        tableau2[5][1] = baseCREME2 * (valeur/baseNOMBRE);
+        tableau2[6][1] = baseJUSCITRON2 * (valeur/baseNOMBRE);
+        tableau2[7][1] = baseCITRON2 * (valeur/baseNOMBRE);
+
+        tableau3[0][1] = baseEAU3 * (valeur/baseNOMBRE);
+        tableau3[1][1] = baseSUCRE3 * (valeur/baseNOMBRE);
+        tableau3[2][1] = baseBLANC3 * (valeur/baseNOMBRE);
+
+        document.getElementById("eau1").innerHTML = Math.round(tableau[0][1]);
+        document.getElementById("beurre1").innerHTML = Math.round(tableau[1][1]);
+        document.getElementById("sucre1").innerHTML = Math.round(tableau[2][1]);
+        document.getElementById("oeuf1").innerHTML = tableau[3][1];
+        document.getElementById("farine1").innerHTML = Math.round(tableau[4][1]);
+        document.getElementById("sel1").innerHTML = Math.round(tableau[5][1]);
+
+        document.getElementById("beurre2").innerHTML = Math.round(tableau[0][1]);
+        document.getElementById("sucre2").innerHTML = Math.round(tableau[1][1]);
+        document.getElementById("oeuf2").innerHTML = Math.round(tableau[2][1]);
+        document.getElementById("jaune2").innerHTML = tableau[3][1];
+        document.getElementById("maizena2").innerHTML = Math.round(tableau[4][1]);
+        document.getElementById("creme2").innerHTML = Math.round(tableau[5][1]);
+        document.getElementById("juscitron2").innerHTML = Math.round(tableau[6][1]);
+        document.getElementById("citron2").innerHTML = Math.round(tableau[7][1]);
+
+        document.getElementById("eau3").innerHTML = Math.round(tableau[0][1]);
+        document.getElementById("sucre3").innerHTML = Math.round(tableau[1][1]);
+        document.getElementById("oeuf3").innerHTML = Math.round(tableau[2][1]);
+
+        
+        calories();
+    }
+
+    function calories(){
+      //coef = valeurACT/valeurREF
+      lipide = 0, proteine = 0, glucide = 0;
+      for(var i = 0; i < ingredients["ingredients"].length ; i++){
+        var coef = 0, indice = 0, flag = 0;
+        for(y = 0; tableau1[y][0] != ingredients["ingredients"][i]["id"]; y++, indice++){
+          
+          if(y == tableau1.length-1){
+            flag = 1;
+            break;
+          }
+          
+        }
+        if(flag == 0){
+          coef = tableau1[indice][1] / ingredients["ingredients"][i]["quantite"];
+          proteine += ingredients["ingredients"][i]["proteine"]*coef;
+          lipide += ingredients["ingredients"][i]["lipide"]*coef;
+          glucide += ingredients["ingredients"][i]["glucide"]*coef;        
+          
+        }
+        
+      }
+
+      for(var i = 0; i < ingredients["ingredients"].length ; i++){
+        var coef = 0, indice = 0, flag = 0;
+        for(y = 0; tableau2[y][0] != ingredients["ingredients"][i]["id"]; y++, indice++){
+          
+          if(y == tableau2.length-1){
+            flag = 1;
+            break;
+          }
+          
+        }
+        if(flag == 0){
+          coef = tableau2[indice][1] / ingredients["ingredients"][i]["quantite"];
+          proteine += ingredients["ingredients"][i]["proteine"]*coef;
+          lipide += ingredients["ingredients"][i]["lipide"]*coef;
+          glucide += ingredients["ingredients"][i]["glucide"]*coef;        
+          
+        }
+        
+      }
+
+      for(var i = 0; i < ingredients["ingredients"].length ; i++){
+        var coef = 0, indice = 0, flag = 0;
+        for(y = 0; tableau3[y][0] != ingredients["ingredients"][i]["id"]; y++, indice++){
+          
+          if(y == tableau3.length-1){
+            flag = 1;
+            break;
+          }
+          
+        }
+        if(flag == 0){
+          coef = tableau3[indice][1] / ingredients["ingredients"][i]["quantite"];
+          proteine += ingredients["ingredients"][i]["proteine"]*coef;
+          lipide += ingredients["ingredients"][i]["lipide"]*coef;
+          glucide += ingredients["ingredients"][i]["glucide"]*coef;        
+          
+        }
+        
+      }
+      
+      document.getElementById("calorie").innerHTML = (proteine*4 + lipide*9 + glucide*4);
+      document.getElementById("proteine").innerHTML = proteine;
+      document.getElementById("lipide").innerHTML = lipide;
+      document.getElementById("glucide").innerHTML = glucide;
+      }
+  </script>

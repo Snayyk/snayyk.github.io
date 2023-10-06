@@ -43,7 +43,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../recettes.html">Recettes</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Panna cotta</li>
+          <li class="breadcrumb-item active" aria-current="page">Pâte brisée</li>
         </ol>
       </nav>
       <!--Fin fil d'ariane-->
@@ -53,25 +53,26 @@
         <h4>Liste des ingrédients </h4>
         
         <div class="form-floating mt-3 mb-3 col-md-3 col-sm-4">
-            <input type="number" class="form-control" id="floatingInput" step="1" value="10" onchange="dosage();" min="1">
-            <label for="floatingInput">Nombre de <span id="panna">panna cottas</span></label>
+            <input type="number" class="form-control" id="floatingInput" step="1" value="1" onchange="dosage();" min="1">
+            <label for="floatingInput">Nombre de pâtons</label>
         </div>
         <ul>
             <li>
-                crème liquide 30% - <span id="creme">50</span>cl
+                eau - <span id="eau">5</span>cl
             </li>
             <li>
-                sucre - <span id="sucre">130</span>g
+                Beurre - <span id="beurre">125</span>g
+            </li>
+            <li>
+                Farine T45 - <span id="farine">250</span>g
             </li>
             
             <li>
-                lait demi-écrémé (ou autre) - <span id="lait">40</span>cl
+                <span id="plurieloeuf">oeuf</span> - <span id="oeuf">1</span> (jaune)
             </li>
+            
             <li>
-                feuille de gélatine - <span id="gelatine">5</span>
-            </li>
-            <li>
-                <i><b>optionnel</b></i> sucre vanillé - <span id="sucrevanille">2</span> <span id="sachet">sachets</span>
+                sel - <span id="sel">5</span>g
             </li>
 
             
@@ -93,8 +94,8 @@
   <script>
     //Partie calories
     var ingredients;
-    var baseNOMBRE = 10, baseCREME = 50, baseLAIT = 40, baseSUCRE = 130, baseSUCREVANILLE = 2, baseGELATINE = 5; //variables de base 
-    var tableau = [[13,50],[2,40],[7,130],[16,2],[17,5]];// variables actuelles
+    var baseNOMBRE = 1, baseEAU = 5, baseBEURRE = 125, baseOEUF = 1, baseFARINE = 250, baseSEL = 5; //variables de base 
+    var tableau = [[18,20],[1,125],[19,1],[4,250],[8,2]];// variables actuelles
     var proteine = 0, lipide = 0, glucide = 0;
 
     var url = "https://snayyk.github.io/res/js/ingredients.json";
@@ -114,25 +115,20 @@
         var valeur = document.querySelector("input").value;
         
 
-        if( valeur < 2){
-            
-            document.getElementById("panna").innerHTML = "panna cotta";
-        } else {
-            
-            document.getElementById("panna").innerHTML = "panna cottas";
-        }
-       
-        tableau[0][1] = baseCREME * (valeur/baseNOMBRE);
-        tableau[1][1] = baseLAIT * (valeur/baseNOMBRE);
-        tableau[2][1] = baseSUCRE * (valeur/baseNOMBRE);
-        tableau[3][1] = baseSUCREVANILLE * (valeur/baseNOMBRE);
-        tableau[4][1] = baseGELATINE * (valeur/baseNOMBRE);
+               
+        tableau[0][1] = baseEAU * (valeur/baseNOMBRE);
+        tableau[1][1] = baseBEURRE * (valeur/baseNOMBRE);
+        
+        tableau[2][1] = baseOEUF * (valeur/baseNOMBRE);
+        tableau[3][1] = baseFARINE * (valeur/baseNOMBRE);
+        tableau[4][1] = baseSEL * (valeur/baseNOMBRE);
 
-        document.getElementById("creme").innerHTML = Math.round(tableau[0][1]);
-        document.getElementById("lait").innerHTML = Math.round(tableau[1][1]);
-        document.getElementById("sucre").innerHTML = Math.round(tableau[2][1]);
-        document.getElementById("sucrevanille").innerHTML = tableau[3][1];
-        document.getElementById("gelatine").innerHTML = tableau[4][1];
+        document.getElementById("eau").innerHTML = Math.round(tableau[0][1]);
+        document.getElementById("beurre").innerHTML = Math.round(tableau[1][1]);
+        
+        document.getElementById("oeuf").innerHTML = tableau[2][1];
+        document.getElementById("farine").innerHTML = Math.round(tableau[3][1]);
+        document.getElementById("sel").innerHTML = Math.round(tableau[4][1]);
         
         calories();
     }
